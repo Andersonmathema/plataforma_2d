@@ -146,6 +146,31 @@ if Input.is_action_just_pressed("jump") and is_on_floor():
 var direction := Input.get_axis("left", "right")
 ```
 
+## Aula 7 - Tile Map
 
-	
-	
+- Vamos alterar a paisagem, no site https://grafxkid.itch.io/seasonal-tilesets
+baixamos os tilesets, extraimos e colocamos na pasta sprites.
+- Vamos apagar as plataformas, clica com o direito em StaticBody2D e excluir.
+- O novo nó em Game será o TileMapLayer.
+- Clicando em Tile Set na janela direita e clicando em TileSet no dropdown
+abrirá uma janela de configuração abaixo.
+- Napasta Seasonal Tilesets escolhemos a pasta Grassland e a imagem Terrain 
+16x16 arrastando na aba TileSet, ele pergunta se quer que ele crie 
+automaticamente os tiles, responda que sim.
+- Na aba TileMap selecionamos a ferramenta de pintura(D) e com o seletor no Game
+selecionado clicamos no desenho e ao clicar no game ele carimba a imagem 
+selecionada abaixo. Arrastando ele cria vários, com o direito ele apaga.
+- Podemos circular uma área e com a ferramenta balde(B) ele preenche a área.
+- Preste atenção no acabamento, perceba que as extremidades dos tiles da imagem
+são diferentes para dar um efeito mais bonito.
+- Se rodar o jogo o personagem vai cair, pois não há collision.
+- Para isso clicamos ena janela direita em Tile Set -> Phisics Layers -> 
+Adicionar elemento.
+- Na aba TileSet na janela de baixo clicamos na aba superios desta janela em
+Selecionar, segurando o shift selecionamos a grama dos tiles superiores, pois
+é o local que queremos que tenha colisão.
+- Ele abre um menu Tiles, em Física e depois Phisics layer, lá no final dele
+haverá um tile para marcar os pontos do poligono de colisão. Clicamos em F
+e ele seleciona o tile "full", ao dar F5 já vemos o resultado da seleção.
+
+## Aula 8
