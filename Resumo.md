@@ -53,4 +53,50 @@ const SPEED = 30.0
 const JUMP_VELOCITY = -300.0
 ```
 
-## Aula 4
+## Aula 4 - flip player
+
+- Se clicarmos em AnimatedSprite2D na direita vemos em offset Flip H que é o 
+efeito que queremos aplicar ao player.
+- Abrimos o script e arrastamos o animated segurando ctrl e adicionamos ao 
+código:
+
+```python
+extends CharacterBody2D
+
+# Adicionado 
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D 
+
+const SPEED = 30.0
+const JUMP_VELOCITY = -300.0
+``` 
+- Mudei o nome da variável para anim, é do tipo AnimatedSprite2D e o sifrão
+indica uma busca na árvode de nós à esquerda com este elemento
+- No final do código antes de move_and_slie() vamos fazer um if:
+
+```python
+if direction > 0:
+		anim.flip_h = false
+	elif direction < 0:
+		anim.flip_h = true
+		
+	move_and_slide()
+```
+
+- Na janela de animações adicionamos duas novas (ctrl+N): jump(jump16x16) e 
+walk(waddling16x16), no código ficará assim:
+	
+```python
+if is_on_floor():
+		if direction > 0:
+			anim.flip_h = false
+			anim.play("walk")
+		elif direction < 0:
+			anim.flip_h = true
+			anim.play("walk")
+		else:
+			anim.play("idle")
+	else:
+		anim.play("jump")
+```
+	
+	
