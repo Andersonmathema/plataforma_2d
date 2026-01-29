@@ -98,5 +98,54 @@ if is_on_floor():
 	else:
 		anim.play("jump")
 ```
+
+## Aula 5 - Camera no player
+
+- Primeiro vamos ocultar o colisor do player clicando no "olho" do 
+CollisionShape2D do player.
+- Nas configurações projeto em Janela podemos dobrar o tamanho da altura e
+largura em 300x200
+- Para criar as plataformas, seleciono o bloco e ajusto seu tamanho, clico em 
+ctrl+D para duplicar. Se ajustar o tamanho novamente verá que os dois blocos
+estão vinculados, pois o godot o trata como o mesmo arquivo. Se quiser 
+desvincular basta clicar no bloco e na direita onde escolhemos o tipo de shape
+clicar no dropdown e escolher "Tornar único".
+- Feito as plataformas e rodando percebemos que o player está lento, deixe a 
+velocidade no código em 80.
+- Para a camera no player criaremos um nó novo no player, chamado de Camera2D
+como filha de player. Ao testar em F5 percebemos que a camera não tem limites,
+se o personagem pula ou vai pra esquerda ele mostra muitas partes que talvez 
+a gente não queira que seja mostrado. O ideal é dar limites.
+- Com a Camera2D selecionada na janela direita clicamos em limit, deixaremos
+left e top zerados, bottom 200(o tamanho da altura da janela feita no início
+dessa aula). O right depende do tamanho da fase, afinal de acordo com que 
+andamos pra direita o personagem vai progredindo. Sabendo onde será o fim da 
+fase basta posicionar o player nele e na janela direita em transform vemos a 
+coordenada x (entre 430 e 470 mais ou menos) e podemos limitar a camera até essa
+posição.
+- Por fim para suavizar a camera podemos marca o Position smoothing, dará uma 
+sensação de movimento de camera ao para o personagem.
+
+## Aula 6 - Configurando teclas
+
+- Clicamos em Projeto -> Configurações do projeto -> Mapa de Entrada
+- Em Adicionar nova ação damos um nome ao comando, este nome será chamado no
+código, escreva "left" e dê enter e ele mostra o nome seguido do símbolo de +.
+- Ao clicar no + ele pede para clicar na tecla correspondente ao comando,
+no caso escolho o "A" e a seta esquerda do teclado, no comando "right" escolho 
+"D" e seta para direita e por fim "jump" com as teclas backspace, "W" e seta 
+para cima. 
+- No código mudamos os comandos com ui para os nomes dos comando que demos:
+```python
+# Handle jump.
+if Input.is_action_just_pressed("jump") and is_on_floor():
+	velocity.y = JUMP_VELOCITY
+
+# Get the input direction and handle the movement/deceleration.
+# As good practice, you should replace UI actions with custom gameplay actions.
+var direction := Input.get_axis("left", "right")
+```
+
+
 	
 	
