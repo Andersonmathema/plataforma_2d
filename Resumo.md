@@ -174,3 +174,17 @@ haverá um tile para marcar os pontos do poligono de colisão. Clicamos em F
 e ele seleciona o tile "full", ao dar F5 já vemos o resultado da seleção.
 
 ## Aula 8
+
+- Criamos uma área que queremos que o personagem passe na frente de blocos
+e ao pular suba na plataforma.
+- Apagamos todos os tiles no jogo.
+- No player em AnimatedSpite2D em Ordering na direita o Zindex indica qual a 
+ordem das camadas de layers. Todos começão no 0, deixaremos o player no 1 e 
+background posteriormente em -1, -2, -10 e assim por diante.
+- Observamos que o tileset está na forma de cruz, selecionamos todos os blocos 
+menos os 6 superiores, os 6 serão a base das plataformas tranpassáveis.
+- Os de baixo slecionamos em tileset todos e clicamos em F, colocando colisor
+em todos.
+- Os 6 de cima uso colando em cima do chão cheio de colisor, escolho só a grama
+para colidir e em poligon 0 abaixo do physics layer deixamos o direção única
+marcado para o personagem passar por baixo ao pular e ficar em cima.
